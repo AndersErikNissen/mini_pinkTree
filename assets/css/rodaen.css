@@ -17,4 +17,11 @@
     /* ____FLEX */
     --flex-direction: row;
     --flex-wrap: nowrap;
-    }
+
+    /* 
+    Color
+    */
+    --main-color: #081534;
+
+ 
+}

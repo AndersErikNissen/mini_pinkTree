@@ -1,10 +1,16 @@
 /*CSS by Anders Erik Nissen
 UCN MMDA0920*/
 @charset "uft-8";
-* {box-sizing: border-box;}
+* {box-sizing: border-box;margin: 0; padding: 0;}
 
 
-
+/*############### 
+      FONTS 
+################*/
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
 
 /*############### 
     VARIABLER 
@@ -46,5 +52,63 @@ UCN MMDA0920*/
 @media screen and (min-width: 320px) and (max-width: 480px) {
     .grid {
         grid-template-columns: repeat(var(--grid-column-mobil), 1fr);
+    }
+}
+
+/*##################
+        CODE
+###################*/
+body {
+    background-color: var(--main-color);
+    display: grid;
+    height: 100%;
+
+    /* font-family: 'Style Script', cursive; */
+    /* font-family: 'MonteCarlo', cursive; */
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Andada Pro', serif;
+    color: white;
+}
+main {
+    grid-area: 1 / 1 / 2 / 2;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    font-size: calc(var(--font-size-desk) * 3);
+    font-weight: normal;
+}
+p {
+    font-size: calc(var(--font-size-desk) * 1.5);
+}
+#pinkTree {
+    width: 20vw;
+}
+#arrowContainer {
+    grid-area: 2 / 1 / 3 / 2;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#arrowDown {
+    width: 50px;
+    position: absolute;
+    top: 4vh;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
