@@ -100,7 +100,16 @@ p {
     top: 4vh;
     animation: bounce 2s infinite ease-in-out;
 }
-
+.cls-7, .cls-8 {
+    animation: move 2s infinite linear;
+    motion-rotation: reverse;
+    offset-path: path('M134,.6C90.55,3.16,78.39,53.27,39.05,51.77,18.63,51-.6,36.61.55,28.56c1.91-13.42,61.32-16.3,92.83-15.83,54.6.83,89.47,12.72,90.73,8.44C185.21,17.45,161.55-1,134,.6Z');
+}
+@keyframes move {
+    100% {
+        offset-distance: 100%;
+    }
+}
 @keyframes bounce {
     0% {
         transform: translateY(0px);
