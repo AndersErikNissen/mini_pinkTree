@@ -1,17 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612 574.59"><defs>
 <style>
-#move {
-    position: relative;
-}
-.cls-7, .cls-8 {
-    position: absolute;
+#move > *{
     animation: move 10s infinite linear;
     motion-rotation: reverse;
-    offset-path: path('M134,.6C90.55,3.16,78.39,53.27,39.05,51.77,18.63,51-.6,36.61.55,28.56c1.91-13.42,61.32-16.3,92.83-15.83,54.6.83,89.47,12.72,90.73,8.44C185.21,17.45,161.55-1,134,.6Z');
+    <!-- offset-path: path("M342,292.59c-.4.89-4.89,10.69-13.85,11.67a13.85,13.85,0,0,1-5.74-.59"); -->
 }
 @keyframes move {
+    0% {
+        transform: translate(0px);
+    }
+    50% {
+        transform: translate(50px,20px)
+    }
     100% {
-        offset-distance: 100%;
+        transform: translate(0px);
     }
 }
 
