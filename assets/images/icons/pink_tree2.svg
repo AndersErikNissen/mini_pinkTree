@@ -1,11 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612 574.59"><defs>
 <style>
-#move > *{
-    animation: move 10s infinite linear;
-    motion-rotation: reverse;
-    <!-- offset-path: path("M342,292.59c-.4.89-4.89,10.69-13.85,11.67a13.85,13.85,0,0,1-5.74-.59"); -->
+#move > *:nth-child(-n+4) {
+    animation: move1 10s infinite linear;
 }
-@keyframes move {
+#move > *:nth-child(n+4):nth-child(-n+8) {
+    animation: move2 10s infinite linear;
+}
+@keyframes move1 {
+    0% {
+        transform: translate(0px);
+    }
+    50% {
+        transform: translate(10px,80px)
+    }
+    100% {
+        transform: translate(0px);
+    }
+}
+@keyframes move2 {
     0% {
         transform: translate(0px);
     }
