@@ -3,18 +3,52 @@
 <style>
 
 
-#grp1, #grp2, #grp3, #grp4 {
-    animation: moveSideToSide 10s linear infinite;
+#grp1 {
+    animation: moveSideToSide3 30s linear infinite;
 }
-#grp1 > *, #grp2 > *, #grp3 > *, #grp4 > * {
-    animation: hori 1.4s alternate infinite ease-in-out;
+#grp3 {
+    animation: moveSideToSide 30s linear infinite;
+}
+#grp2, #grp4 {
+    animation: moveSideToSide2 30s linear infinite;
+}
     <!-- Lige som søs snakkede om så gør at lysende "flikker", ændre på den lille cirkels tone/oppacity -->
+#grp2 > *, #grp4 > * {
+    animation: hori 2.5s alternate infinite ease-in-out;
+}
+#grp3 > * {
+    animation: hori2 2.5s alternate infinite ease-in-out;
+}
+#grp1 > * {
+    animation: hori3 2.5s alternate infinite ease-in-out;
 }
 @keyframes hori {
-    to {transform: translateY(10px);}
+    to {transform: translateX(12px);}
 }
+@keyframes hori2 {
+    to {transform: translateY(15px);}
+}
+@keyframes hori3 {
+    to {transform: translateY(15px);}
+}
+
 @keyframes moveSideToSide {
-    50% {transform: translateX(70px);}
+    5% {transform: translate(0px)}
+    45% {transform: translate(80px, 10px);}
+    55% {transform: translate(80px, 10px);}
+    95% {transform: translate(0px)}
+}
+@keyframes moveSideToSide2 {
+    5% {transform: translate(0px)}
+    45% {transform: translate(100px, -30px);}
+    55% {transform: translate(100px, -30px);}
+    95% {transform: translate(0px)}
+}
+@keyframes moveSideToSide3 {
+    5% {transform: translate(0px)}
+    45% {transform: translateX(-100px);}
+    55% {transform: translateX(-100px);}
+    95% {transform: translate(0px)}
 }
 
 .cls-1{fill:none;}

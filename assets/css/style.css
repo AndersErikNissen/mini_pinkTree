@@ -61,7 +61,6 @@ UCN MMDA0920*/
 body {
     background-color: var(--main-color);
     display: grid;
-    height: 100%;
 
     /* font-family: 'Style Script', cursive; */
     /* font-family: 'MonteCarlo', cursive; */
@@ -69,16 +68,17 @@ body {
     font-family: 'Andada Pro', serif;
     color: white;
 }
-main {
+#mainHero {
     grid-area: 1 / 1 / 2 / 2;
-    height: 90vh;
+    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 h1 {
-    font-size: calc(var(--font-size-desk) * 6);
+    font-size: calc(var(--font-size-desk) * 4);
     font-weight: normal;
 }
 p {
@@ -88,23 +88,29 @@ p {
     width: 35vw;
 }
 #arrowContainer {
-    grid-area: 2 / 1 / 3 / 2;
     height: 10vh;
     display: flex;
     justify-content: center;
-    position: relative;
 }
-#arrowDown {
+#arrowUp {
+    position: relative;
+    border: solid white 1px;
+    border-radius: 50%;
     width: 50px;
-    position: absolute;
-    top: 4vh;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: teal;
+}
+#arrow {
+    /* transform: rotate(180deg); */
+    margin-bottom: 5px;
+    width: 60%;
     animation: bounce 2s infinite ease-in-out;
 }
-.cls-7, .cls-8 {
-    animation: move 2s infinite linear;
-    motion-rotation: reverse;
-    offset-path: path('M134,.6C90.55,3.16,78.39,53.27,39.05,51.77,18.63,51-.6,36.61.55,28.56c1.91-13.42,61.32-16.3,92.83-15.83,54.6.83,89.47,12.72,90.73,8.44C185.21,17.45,161.55-1,134,.6Z');
-}
+
 @keyframes move {
 
     0% {
@@ -118,20 +124,27 @@ p {
     }
 }
 @keyframes bounce {
-    0% {
-        transform: translateY(0px);
-    }
     50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(0px);
+        transform: translateY(10px);
     }
 }
 
-#grp2 {
-    animation: move 5s linear infinite;
+#mainContent {
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: 2;
+
+    background-color: white;
+    height: 0;
 }
-@keyframes move {
-    to {transform: translateX(50);}
+.inchght {
+    animation: 1s inchght forwards ease-in-out;
+}
+.dehght {
+    animation: 1s dehght forwards ease-in-out;
+}
+@keyframes inchght {
+    to {height: 100%;}
+}
+@keyframes dehght {
+    to {height: 0%;}
 }
