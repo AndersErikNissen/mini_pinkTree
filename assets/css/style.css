@@ -217,8 +217,8 @@ button[type=button]:hover {
     height: 40vw;
     padding: 3vw;
 }
-#theme1 div:nth-child(1) {
-    background-color: rgb(87, 87, 87);
+#theme1 #innerTheme {
+    background-color: rgba(255, 255, 255, 0.247);
     border-radius: 30px;
 
     width: 100%;
@@ -228,19 +228,49 @@ button[type=button]:hover {
 
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
-#theme1 > div > div:nth-child(1) {
+#theme1 .rr {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#theme1 .round{
     border-radius: 50%;
-    width: 3vw;
-    height: 3vw;
+    width: 4vw;
+    height: 4vw;
+    margin: 1vw;
     background-color: rgb(48, 48, 48);
 }
-#theme1 > div > div:nth-child(2) {
-    margin: 0 0 0 2vw;
+#theme1 .rectangle_container {
+    width: 60%;
+
+}
+#theme1 .rectangle {
+    margin: 0 0 0 1vw;
     width: 100%;
-    height: 2vw;
+    height: 1vw;
     border-radius: 2vw;
     background-color: rgb(48, 48, 48);
+}
+#theme1 .rectangle_small {
+    margin: 1vw 0 0 1vw;
+    width: 60%;
+    height: 1vw;
+    border-radius: 2vw;
+    background-color: rgb(99, 99, 99);
+}
+#theme1 #tc2 {
+    height: 50%;
+    width: 100%;
+}
+#theme1 #tc2 div:nth-child(1) {
+    background-color: rgb(48, 48, 48);
+    border-radius: 10px;
+    width: 100%;
+    height: 50%;
 }
 
 #step1 {
