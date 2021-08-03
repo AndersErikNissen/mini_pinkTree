@@ -11,6 +11,7 @@ UCN MMDA0920*/
 @import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 /*############### 
     VARIABLER 
@@ -77,13 +78,24 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+/* 
+    Fonts
+*/
 h1 {
     font-size: calc(var(--font-size-desk) * 4);
     font-weight: normal;
 }
-p {
-    font-size: calc(var(--font-size-desk) * 1.5);
+h2 {
+    font-size: calc(var(--font-size-desk) * 2);
+    margin: 1rem;
 }
+p {
+    font-size: calc(var(--font-size-desk) * 1);
+    margin: 1rem;
+}
+
+
 #pinkTree {
     width: 35vw;
 }
@@ -129,14 +141,120 @@ p {
         transform: translateY(10px);
     }
 }
-
-#mainContent {
+/* 
+    Main Content
+*/
+#mainContent_container {
     grid-area: 1 / 1 / 3 / 2;
     z-index: 2;
+    overflow: hidden;
+    height: 0;
 
     background-color: white;
-    height: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+#mainContent_container > * {
+    color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* 
+    Button
+*/
+button[type=button] {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 10px;
+
+    min-width: 20ch;
+    width: fit-content;
+}
+button[type=button]:hover {
+    background-color: black;
+    color: white;
+}
+
+.intro {
+    animation: introFade 1s forwards ease-out;
+}
+@keyframes introFade {
+    100% {opacity: 0;}
+}
+
+.step {
+    display: none;
+    opacity: 0;
+}
+.nextStep {
+    animation: step 1s ease-in-out forwards;
+}
+.introNextStep {
+    animation: step 1s ease-in-out forwards;
+    animation-delay: 1s;
+}
+@keyframes step {
+    0% {display: block;}
+
+    1% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 
+    Theme Divs
+*/
+#theme1 {
+    background-color: black;
+    width: 30vw;
+    height: 40vw;
+    padding: 3vw;
+}
+#theme1 div:nth-child(1) {
+    background-color: rgb(87, 87, 87);
+    border-radius: 30px;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 2vw;
+
+    display: flex;
+    align-items: center;
+}
+#theme1 > div > div:nth-child(1) {
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    background-color: rgb(48, 48, 48);
+}
+#theme1 > div > div:nth-child(2) {
+    margin: 0 0 0 2vw;
+    width: 100%;
+    height: 2vw;
+    border-radius: 2vw;
+    background-color: rgb(48, 48, 48);
+}
+
+#step1 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+
 .inchght {
     animation: 1s inchght forwards ease-in;
 }
