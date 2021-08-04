@@ -20,6 +20,8 @@ UCN MMDA0920*/
     --theme-div-bg: rgba(255, 255, 255, 0.247);
     --theme-color-main: rgb(48, 48, 48);
     --theme-color-sec: rgb(99, 99, 99);
+
+    --theme-two-cBG: rgb(255, 166, 0);
 }
 
 
@@ -239,7 +241,7 @@ button[type=button]:hover {
 }
 #theme2 {
     /* Root */
-    --theme-div-containerBG: rgb(255, 166, 0);
+    --theme-div-containerBG: var(var(--theme-two-cBG));
 
     background-color: var(--theme-div-containerBG);
     width: var(--theme-width);
@@ -248,7 +250,7 @@ button[type=button]:hover {
 }
 #theme2 > * {
     /* Root */
-    --theme-div-bg: rgba(255, 174, 0, 0.356));
+    --theme-div-bg: rgba(255, 174, 0, 0.356);
     --theme-color-main: rgb(245, 208, 88);
     --theme-color-sec: white;
 }
