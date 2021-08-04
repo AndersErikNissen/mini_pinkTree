@@ -1,6 +1,11 @@
 //JS by Anders Erik Nissen
 //UCN MMDA0920
 
+
+// General
+const
+root = document.documentElement;
+
 // Up Btn
 const 
     upBtn = document.querySelector("#arrowUp"),
@@ -36,9 +41,17 @@ step1 = document.querySelector("#step1");
 
 intro.addEventListener("click", () => {
     let int = document.querySelector("#intro");
+
     int.classList.add("intro");
-    setTimeout(()=>{int.style.display = "none"}, 1000);
+    
+    setTimeout(()=> {
+        root.style.setProperty("--intro-display", "none")
+    }, 1000)
+    setTimeout(()=> {
+        root.style.setProperty("--step-one-display", "flex");
+    }, 1000)
     step1.classList.add("introNextStep");
+
 })
 
 function changeStep (btn,next) {

@@ -3,6 +3,25 @@ UCN MMDA0920*/
 @charset "uft-8";
 * {box-sizing: border-box;margin: 0; padding: 0;}
 
+:root {
+    /* 
+    Steps
+    */
+    --intro-display: flex;
+    --step-one-display: none;
+
+    /* 
+    Themes
+    */
+    --theme-width: 20vw;
+    --theme-height: 30vw;
+    /* Color */
+    --theme-div-containerBG: black;
+    --theme-div-bg: rgba(255, 255, 255, 0.247);
+    --theme-color-main: rgb(48, 48, 48);
+    --theme-color-sec: rgb(99, 99, 99);
+}
+
 
 /*############### 
       FONTS 
@@ -186,21 +205,16 @@ button[type=button]:hover {
     100% {opacity: 0;}
 }
 
-.step {
-    display: none;
-    opacity: 0;
-}
 .nextStep {
     animation: step 1s ease-in-out forwards;
 }
-.introNextStep {
-    animation: step 1s ease-in-out forwards;
-    animation-delay: 1s;
-}
 @keyframes step {
-    0% {display: block;}
-
+    0% {
+        display: none;
+        opacity: 0;
+    }
     1% {
+        display: flex;
         opacity: 0;
     }
     100% {
@@ -208,19 +222,40 @@ button[type=button]:hover {
     }
 }
 
-/* 
-    Theme Divs
-*/
-#theme1 {
-    background-color: black;
-    width: 30vw;
-    height: 40vw;
-    padding: 3vw;
-}
-#theme1 #innerTheme {
-    background-color: rgba(255, 255, 255, 0.247);
-    border-radius: 30px;
 
+/* 
+    Themes
+*/
+#themeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+#theme1 {
+    background-color: var(--theme-div-containerBG);
+    width: var(--theme-width);
+    height: var(--theme-height);
+    padding: 1vw;
+}
+#theme2 {
+    /* Root */
+    --theme-div-containerBG: rgb(255, 166, 0);
+
+    background-color: var(--theme-div-containerBG);
+    width: var(--theme-width);
+    height: var(--theme-height);
+    padding: 1vw;
+}
+#theme2 > * {
+    /* Root */
+    --theme-div-bg: rgba(255, 174, 0, 0.356));
+    --theme-color-main: rgb(245, 208, 88);
+    --theme-color-sec: white;
+}
+#innerTheme {
+    border-radius: 30px;
+    background-color: var(--theme-div-bg);
+    
     width: 100%;
     height: 100%;
 
@@ -230,58 +265,73 @@ button[type=button]:hover {
     align-items: center;
     flex-direction: column;
 }
-#theme1 .rr {
+.rr {
     width: 100%;
     height: 20%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left
 }
-#theme1 .round{
+.round{
     border-radius: 50%;
-    width: 4vw;
-    height: 4vw;
-    margin: 1vw;
-    background-color: rgb(48, 48, 48);
+    width: 2vw;
+    height: 2vw;
+    margin: .5vw;
+    background-color: var(--theme-color-main);
 }
-#theme1 .rectangle_container {
+.rectangle_container {
     width: 60%;
-
 }
-#theme1 .rectangle {
-    margin: 0 0 0 1vw;
+.rectangle {
+    margin: 0 0 0 .5vw;
     width: 100%;
-    height: 1vw;
-    border-radius: 2vw;
-    background-color: rgb(48, 48, 48);
+    height: .5vw;
+    border-radius: 1vw;
+    background-color: var(--theme-color-main);
 }
-#theme1 .rectangle_small {
-    margin: 1vw 0 0 1vw;
+.rectangle_small {
+    margin: .5vw 0 0 .5vw;
     width: 60%;
-    height: 1vw;
-    border-radius: 2vw;
-    background-color: rgb(99, 99, 99);
+    height: .5vw;
+    border-radius: 1vw;
+    background-color: var(--theme-color-sec);
 }
-#theme1 #tc2 {
-    height: 50%;
+.textbox {
+    border-radius: .5vw;
+    background-color: var(--theme-color-main);
     width: 100%;
-}
-#theme1 #tc2 div:nth-child(1) {
-    background-color: rgb(48, 48, 48);
-    border-radius: 10px;
-    width: 100%;
-    height: 50%;
+    height: 100%;
 }
 
-#step1 {
+
+#intro {
     height: 100%;
     width: 100%;
-    display: flex;
+    display: var(--intro-display);
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+#step1 {
+    height: 100%;
+    width: 100%;
+    display: var(--step-one-display);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#step1.introNextStep {
+    animation: introStep 1s ease-in-out forwards;
+}
+@keyframes introStep {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 
 
@@ -292,9 +342,9 @@ button[type=button]:hover {
     animation: 1s dehght forwards ease-in;
 }
 @keyframes inchght {
-    to {height: 100%;}
+    to {height: 100vh;}
 }
 @keyframes dehght {
-    from {height: 100%;}
-    to {height: 0%;}
+    from {height: 100vh;}
+    to {height: 0vh;}
 }
