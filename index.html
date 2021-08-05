@@ -20,6 +20,12 @@
 
     <section id="mainContent_container" data-style="light">
         
+        <header id="topX">
+            <button id="xBtn">
+                <img src="/assets/images/icons/close.png" alt="Close window - Icon">
+            </button>
+        </header>
+
         <section id="mainContent" data-state="ongoing">
 
             <section id="intro">
@@ -28,7 +34,7 @@
                 <button type="button" id="intro_btn">GET STARTED</button>
             </section>
 
-            <section id="step1" class="step">
+            <section id="step1" class="step" data-status="0">
                 <h2>Choose a theme:</h2>
                 
                 <section id="themeContainer">
@@ -100,19 +106,22 @@
                         </div>
     
                     </section>
-                    
+
                 </section>
 
-            </section>
+                <button type="button">
+                    NEXT >
+                </button>
 
+            </section>
 
         </section>
 
     </section>
     
     <section id="arrowContainer">
-        <button id="arrowUp">
-            <img id="arrow" src="/assets/images/icons/arrow_down_white.png" alt="Arrow Down">
+        <button id="arrowUp" type="button">
+            GET STARTED
         </button>
     </section>
 

@@ -54,8 +54,33 @@ intro.addEventListener("click", () => {
 
 })
 
-function changeStep (btn,next) {
-    btn.addEventListener("click", () => {
-        next.classList.add("nextStep");
-    })
-}
+// Select Theme
+const
+soft = document.querySelector("#theme1"),
+edge = document.querySelector("#theme2");
+
+soft.addEventListener("click", () => {
+    edge.classList.remove("actTheme");
+    soft.classList.add("actTheme");
+
+    step1.setAttribute("data-status", 1)
+
+    // One way to set attributes
+    //step1.dataset.status = 1;
+
+})
+edge.addEventListener("click", () => {
+    soft.classList.remove("actTheme");
+    edge.classList.add("actTheme");
+
+    step1.setAttribute("data-status", 2)
+})
+
+// Close Container
+const
+xBtn = document.querySelector("#xBtn");
+
+xBtn.addEventListener("click", () => {
+    content.classList.remove("inchght");
+    content.classList.add("dehght");
+})
