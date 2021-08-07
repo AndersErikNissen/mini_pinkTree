@@ -36,22 +36,33 @@ const
 // Steps
 const
 stepArr = document.querySelectorAll(".step"), 
-intro = document.querySelector("#intro_btn"),
+introBtn = document.querySelector("#intro_btn"),
 step1 = document.querySelector("#step1");
 
-intro.addEventListener("click", () => {
-    let int = document.querySelector("#intro");
+let
+intro = "#intro",
+intDisplay = "--intro-display",
+stepOneDisplay = "--step-one-display";
 
-    int.classList.add("intro");
+
+function nextStep (step, var1, var2) {
+    let 
+    int = document.querySelector(step);
+    
+    int.classList.add("fadeOut");
     
     setTimeout(()=> {
-        root.style.setProperty("--intro-display", "none")
+        root.style.setProperty(var1, "none")
     }, 1000)
     setTimeout(()=> {
-        root.style.setProperty("--step-one-display", "flex");
+        root.style.setProperty(var2, "flex");
     }, 1000)
     step1.classList.add("introNextStep");
+    
+}
 
+introBtn.addEventListener("click", () => {
+    nextStep(intro, intDisplay, stepOneDisplay);
 })
 
 // Select Theme

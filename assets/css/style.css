@@ -23,8 +23,8 @@ UCN MMDA0920*/
     /* Color */
     --theme-div-containerBG: rgba(0, 0, 0, 0);
     --theme-div-bg: rgba(0, 204, 255, 0);
-    --theme-color-main: rgba(20, 20, 20, 0.582);
-    --theme-color-sec: rgba(20, 20, 20, 0.301);
+    --theme-color-main: rgba(255, 255, 255, 0.87);
+    --theme-color-sec: rgba(212, 212, 212, 0.699);
 
     --theme-two-cBG: rgb(255, 166, 0);
 }
@@ -187,7 +187,7 @@ p {
     overflow: hidden;
     height: 0;
 
-    background-color: white;
+    background-color: #ce1e58;
 
     display: flex;
     justify-content: center;
@@ -195,7 +195,7 @@ p {
     flex-direction: column;
 }
 #mainContent_container > * {
-    color: black;
+    color: white;
     font-family: 'Roboto Mono', monospace;
 }
 #mainContent {
@@ -206,13 +206,38 @@ p {
     height: 100%;
     width: 100%;
 }
+
+#intro section {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#pinkTreeTop_container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+
+    flex-direction: column-reverse;
+}
+#pinkTreeTop {
+    height: 30%;
+    width: 100%;
+}
+
+
 /* 
     Button
 */
 button[type=button] {
     background-color: transparent;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 2px solid white;
+    color: white;
     font-weight: bold;
     padding: 10px;
 
@@ -220,14 +245,14 @@ button[type=button] {
     width: fit-content;
 }
 button[type=button]:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: #ce1e58;
 }
 
-.intro {
-    animation: introFade 1s forwards ease-out;
+.fadeOut {
+    animation: outFade 1s forwards ease-out;
 }
-@keyframes introFade {
+@keyframes outFade {
     100% {opacity: 0;}
 }
 
@@ -380,7 +405,7 @@ button[type=button]:hover {
 }
 
 .actTheme {
-    --theme-div-containerBG: rgba(0, 0, 0, 0.050);
+    --theme-div-containerBG: rgb(255, 255, 255);
     --theme-color-main: rgb(20, 20, 20);
     --theme-color-sec: rgba(20, 20, 20, 0.719);
 }
