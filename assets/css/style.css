@@ -439,3 +439,20 @@ button[type=button]:hover {
     from {height: 100vh;}
     to {height: 0vh;}
 }
+
+
+/* 
+----- Pick a Color!
+*/
+.colorBox_container
+.colorBox {
+    width: 5vw;
+    height: 5vw;
+
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+
+
