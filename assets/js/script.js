@@ -37,15 +37,22 @@ const
 const
 stepArr = document.querySelectorAll(".step"), 
 introBtn = document.querySelector("#intro_btn"),
-step1 = document.querySelector("#step1");
+step1 = document.querySelector("#step1"),
+step1btn = document.querySelector("#step1_nextBtn"),
+
+step2 = document.querySelector("#step2");
 
 let
+//Intro > Step1
 intro = "#intro",
 intDisplay = "--intro-display",
-stepOneDisplay = "--step-one-display";
+stepOneDisplay = "--step-one-display",
+//Step1 > Step2
+stepOne = "#step1",
+stepTwoDisplay = "--step-two-display";
 
 
-function nextStep (step, var1, var2) {
+function nextStep (step, var1, var2, sec_step) {
     let 
     int = document.querySelector(step);
     
@@ -57,12 +64,19 @@ function nextStep (step, var1, var2) {
     setTimeout(()=> {
         root.style.setProperty(var2, "flex");
     }, 1000)
-    step1.classList.add("introNextStep");
+
+    if(int.classList.contains("introNextStep")) {
+        int.classList.remove("introNextStep")
+    }
+    sec_step.classList.add("introNextStep");
     
 }
 
 introBtn.addEventListener("click", () => {
-    nextStep(intro, intDisplay, stepOneDisplay);
+    nextStep(intro, intDisplay, stepOneDisplay, step1);
+})
+step1btn.addEventListener("click", ()=> {
+    nextStep(stepOne, stepOneDisplay, stepTwoDisplay, step2);
 })
 
 // Select Theme

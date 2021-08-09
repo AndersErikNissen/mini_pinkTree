@@ -9,6 +9,7 @@ UCN MMDA0920*/
     */
     --intro-display: flex;
     --step-one-display: none;
+    --step-two-display: none;
 
     /* 
     Themes
@@ -395,6 +396,19 @@ button[type=button]:hover {
 #step1.introNextStep {
     animation: introStep 1s ease-in-out forwards;
 }
+
+#step2 {
+    height: 100%;
+    width: 100%;
+    display: var(--step-two-display);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#step2.introNextStep {
+    animation: introStep 1s ease-in-out forwards;
+}
+
 @keyframes introStep {
     0% {
         opacity: 0;
@@ -403,6 +417,8 @@ button[type=button]:hover {
         opacity: 1;
     }
 }
+
+
 
 .actTheme {
     --theme-div-containerBG: rgb(255, 255, 255);
