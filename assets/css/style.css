@@ -93,7 +93,8 @@ body {
     /* font-family: 'Style Script', cursive; */
     /* font-family: 'MonteCarlo', cursive; */
     /* font-family: 'Oswald', sans-serif; */
-    font-family: 'Andada Pro', serif;
+    /* font-family: 'Andada Pro', serif; */
+    font-family: 'Roboto Mono', monospace;
     color: white;
 }
 #mainHero {
@@ -197,7 +198,6 @@ p {
 }
 #mainContent_container > * {
     color: white;
-    font-family: 'Roboto Mono', monospace;
 }
 #mainContent {
     display: flex;
