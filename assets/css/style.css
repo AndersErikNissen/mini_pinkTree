@@ -199,7 +199,9 @@ p {
 #mainContent_container > * {
     color: white;
 }
+
 #mainContent {
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,6 +209,22 @@ p {
     height: 100%;
     width: 100%;
 }
+#mainContent.fadeMain {
+    animation: 1s fadeMain ease-in forwards;
+    animation-delay: 1s;
+}
+#mainContent.fadeMainOut {
+    animation: .3s fadeMainOut ease-in forwards;
+}
+@keyframes fadeMain {
+    from {opacity: 0;transform: translateY(3vh);}
+    to {opacity: 1;transform: translateY(0);}
+}
+@keyframes fadeMainOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
 
 #intro section {
     height: 100%;
@@ -273,7 +291,9 @@ button[type=button]:hover {
         opacity: 1;
     }
 }
-
+button[type=button]:active {
+    transform: scale(.95);
+}
 
 /* 
     Themes
@@ -396,6 +416,16 @@ button[type=button]:hover {
 #step1.introNextStep {
     animation: introStep 1s ease-in-out forwards;
 }
+#step1_nextBtn {
+    opacity: 0;
+}
+#step1_nextBtn.showNextBtn {
+    animation: 1s showNextButton ease-in forwards;
+}
+@keyframes showNextButton {
+    from {opacity: 0; transform: translateY(2vh);}
+    to {opacity: 1;transform: translateY(0);}
+}
 
 #step2 {
     height: 100%;
@@ -411,9 +441,11 @@ button[type=button]:hover {
 
 @keyframes introStep {
     0% {
+        transform: translateY(3vh);
         opacity: 0;
     }
     100% {
+        transform: translateY(0);
         opacity: 1;
     }
 }
@@ -441,6 +473,7 @@ button[type=button]:hover {
 }
 
 
+
 /* 
 ----- Pick a Color!
 */
@@ -453,6 +486,13 @@ button[type=button]:hover {
     border: 1px solid black;
 }
 
-
-
+/* 
+ --- Close Button
+*/
+#xBtn.change {
+   animation: 0.5s fadeOutX ease-in forwards; 
+}
+@keyframes fadeOutX {
+    to {opacity: 0;}
+}
 

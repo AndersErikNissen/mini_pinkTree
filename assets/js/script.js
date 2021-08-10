@@ -9,7 +9,8 @@ root = document.documentElement;
 // Up Btn
 const 
     upBtn = document.querySelector("#arrowUp"),
-    content = document.querySelector("#mainContent_container");
+    content = document.querySelector("#mainContent_container"),
+    contentMain = document.querySelector("#mainContent");
 
     upBtn.addEventListener("click", () => {
         let
@@ -19,14 +20,23 @@ const
         switch(true) {
             case one:
                 content.classList.remove("inchght");
+                contentMain.classList.remove("fadeMain");
+
                 content.classList.add("dehght");
+                contentMain.classList.add("fadeMainOut");
                 break;
-            case two:
-                content.classList.remove("dehght");
-                content.classList.add("inchght");
-                break;
-            default:
-                content.classList.add("inchght");
+
+                case two:
+                    content.classList.remove("dehght");
+                    content.classList.add("inchght");
+                    contentMain.classList.add("fadeMain");
+                    contentMain.classList.remove("fadeMainOut");
+                    break;
+
+                    default:
+                        content.classList.add("inchght");
+                        contentMain.classList.add("fadeMain");
+                        contentMain.classList.remove("fadeMainOut");
         }
     })
 
@@ -76,8 +86,16 @@ introBtn.addEventListener("click", () => {
     nextStep(intro, intDisplay, stepOneDisplay, step1);
 })
 step1btn.addEventListener("click", ()=> {
-    nextStep(stepOne, stepOneDisplay, stepTwoDisplay, step2);
+    let data = document.querySelector("#step1").getAttribute("data-status");
+
+    if (data === "0") {
+        alert("Please Select!")
+    } else {
+        nextStep(stepOne, stepOneDisplay, stepTwoDisplay, step2);
+    }
 })
+
+
 
 // Select Theme
 const
@@ -88,7 +106,8 @@ soft.addEventListener("click", () => {
     edge.classList.remove("actTheme");
     soft.classList.add("actTheme");
 
-    step1.setAttribute("data-status", 1)
+    step1.setAttribute("data-status", 1);
+    step1btn.classList.add("showNextBtn");
 
     // One way to set attributes
     //step1.dataset.status = 1;
@@ -98,14 +117,19 @@ edge.addEventListener("click", () => {
     soft.classList.remove("actTheme");
     edge.classList.add("actTheme");
 
-    step1.setAttribute("data-status", 2)
+    step1.setAttribute("data-status", 2);
+    step1btn.classList.add("showNextBtn");
 })
 
 // Close Container
 const
 xBtn = document.querySelector("#xBtn");
 
-xBtn.addEventListener("click", () => {
+xBtn.addEventListener("click", (btn) => {
     content.classList.remove("inchght");
     content.classList.add("dehght");
+    xBtn.classList.add("change");
+    setTimeout(()=> {xBtn.classList.remove("change");}, 2000)
+
+    contentMain.classList.add("fadeMainOut");
 })
