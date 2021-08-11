@@ -10,6 +10,7 @@ UCN MMDA0920*/
     --intro-display: flex;
     --step-one-display: none;
     --step-two-display: none;
+    --mainMain-display: none;
 
     /* 
     Themes
@@ -17,9 +18,14 @@ UCN MMDA0920*/
     --theme-width: 100%;
     --theme-height: 60vh;
     /* Style */
-    --theme-edge: 1vw;
+    --theme-edge: 10vw;
     --theme-round: 50%;
     --theme-border: 1px;
+
+    /* 
+        --- Globals
+    */
+    --corners: 0;
 
     /* Color */
     --theme-div-containerBG: rgba(0, 0, 0, 0);
@@ -28,6 +34,23 @@ UCN MMDA0920*/
     --theme-color-sec: rgba(212, 212, 212, 0.699);
 
     --theme-two-cBG: rgb(255, 166, 0);
+
+    /* 
+        --- Color Picker
+    */
+    --picker-color-one: #347fc5;
+    --picker-color-two: linear-gradient(346deg, rgba(224,140,42,1) 0%, rgba(244,48,206,1) 100%);
+    --picker-color-bg: #081534;
+
+
+    /*  -----------------
+        --- Main Main --- 
+        -----------------   */  
+    --mainMain-color-one: 0;
+    --mainMain-color-two: 0;
+    --mainMain-color-bg: 0;
+
+    --mainMain-edge: 0;
 }
 
 
@@ -39,10 +62,6 @@ UCN MMDA0920*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-/*############### 
-    VARIABLER 
-################*/
 
 
 /*###########  
@@ -267,6 +286,9 @@ button[type=button]:hover {
     background-color: white;
     color: #ce1e58;
 }
+button[type=button]:active {
+    transform: scale(.95);
+}
 
 .fadeOut {
     animation: outFade 1s forwards ease-out;
@@ -291,14 +313,12 @@ button[type=button]:hover {
         opacity: 1;
     }
 }
-button[type=button]:active {
-    transform: scale(.95);
-}
+
 
 /* 
     Themes
 */
-#themeContainer {
+#themeContainer, #colorThemes {
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
@@ -341,7 +361,7 @@ button[type=button]:active {
     --theme-edge: 0px;
 }
 #innerTheme {
-    border-radius: var(--theme-edge);
+    border-radius: calc(var(--theme-edge) / 10);
     background-color: var(--theme-div-bg);
     
     width: 20vw;
@@ -389,7 +409,7 @@ button[type=button]:active {
     background-color: var(--theme-color-sec);
 }
 .textbox {
-    border-radius: var(--theme-edge);
+    border-radius: calc(var(--theme-edge) / 10);
     background-color: var(--theme-color-main);
     width: 100%;
     height: 100%;
@@ -416,11 +436,11 @@ button[type=button]:active {
 #step1.introNextStep {
     animation: introStep 1s ease-in-out forwards;
 }
-#step1_nextBtn {
+#step1_nextBtn, #step2_nextBtn  {
     opacity: 0;
 }
-#step1_nextBtn.showNextBtn {
-    animation: 1s showNextButton ease-in forwards;
+#step1_nextBtn.showNextBtn, #step2_nextBtn.showNextBtn {
+    animation: .4s showNextButton ease-in forwards;
 }
 @keyframes showNextButton {
     from {opacity: 0; transform: translateY(2vh);}
@@ -477,13 +497,93 @@ button[type=button]:active {
 /* 
 ----- Pick a Color!
 */
-.colorBox_container
-.colorBox {
-    width: 5vw;
-    height: 5vw;
+#colorThemes {
+    display: flex;
+    flex-direction: row;
+    
+}
+#colorThemes h3 {
+    display: block;
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: white;
+}
+#dark_theme,#light_theme {
+    width: 50vw;
+    height: 70vh;
+    padding: 1vw;
 
-    background-color: white;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--theme-div-containerBG);
+}
+#dark_content:hover, #light_content:hover {
+    transform: scale(1.01);
+}
+#dark_content, #light_content {
+    border-radius: calc(var(--corners) / 10);
+
+    height: 100%;
+    width: 40vw;
+    max-width: 468px;
+    padding: 3%;
+
+    background-color: var(--picker-color-bg);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.295);
+}
+#dark_content section:nth-child(1), #light_content section:nth-child(1) {
+    height: 30%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+}
+#dark_content section.btnContainer, #light_content section.btnContainer {
+    height: 20%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+#light_content {
+    --picker-color-one: rgb(255, 236, 249);
+    --picker-color-two: linear-gradient(346deg, rgba(42,224,45,1) 0%, rgba(48,190,244,1) 100%);
+    --picker-color-bg: #ce1e58;
+}
+
+.colorTitle {
+    display: block;
+    height: 20%;
+    width: 80%;
+    margin: 1% 0;
+
+    border-radius: var(--corners);
+
+    background-color: var(--picker-color-one);
+}
+.colorTitle:nth-child(2) {width: 60%;}
+
+.colorBox {
+    display: block;
+    width: 100%;
+    height: 50%;
+
+    border-radius: calc(var(--corners) / 10);
+    background-color: var(--picker-color-one);
+}
+.colorBtn {
+    width: 35%;
+    height: 50%;
+
+    border-radius: var(--corners);
+
+    background-image: var(--picker-color-two);
+    background-position: center;
+    background-size: cover;
 }
 
 /* 
@@ -494,5 +594,85 @@ button[type=button]:active {
 }
 @keyframes fadeOutX {
     to {opacity: 0;}
+}
+
+/* 
+    --- Main Main
+*/
+
+#welcomeDiv {
+    justify-self: center;
+    align-self: center;
+
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+#mainMain_welcome {
+    font-size: 3rem;
+    transform: translateY(-10rem);
+}
+.welcome {
+    animation: 4s welcome ease-in-out forwards;
+    animation-delay: 1s;
+}
+@keyframes welcome {
+    40% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10rem);
+    }
+}
+
+/* #welcomeDiv.removeBlock {
+    animation: removeBlock .1s forwards;
+    animation-delay: 4.0001s;
+}
+@keyframes removeBlock {
+    99% {
+        display: flex;
+    }
+    100% {
+        display: none;
+    }
+} */
+
+#mainMain {
+    display: var(--mainMain-display);
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+#mainMain_content {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+
+    background-color: var(--mainMain-color-bg);
+}
+.welcome_mainMain {
+    animation: 1s welcomeMainMain forwards ease-in;
+}
+@keyframes welcomeMainMain {
+    from {
+        justify-content: center;
+        height: 0%;
+    }
+    to {
+        justify-content: start;
+        height: 100%;
+    }
 }
 
