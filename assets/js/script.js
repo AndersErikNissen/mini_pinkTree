@@ -224,7 +224,7 @@ xBtn.addEventListener("click", (btn) => {
 // Main Main
 
 function makeBoxs () {
-    for(let i = 0; i < 6; i++) {
+    for(let i = 0; i < 15; i++) {
         let
         box = document.createElement("section"),
         title = document.createElement("h3"),
