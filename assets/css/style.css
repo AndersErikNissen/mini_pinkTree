@@ -600,6 +600,7 @@ button[type=button]:active {
     --- Main Main
 */
 
+/* Welcome Section */
 #welcomeDiv {
     justify-self: center;
     align-self: center;
@@ -617,7 +618,7 @@ button[type=button]:active {
 }
 .welcome {
     animation: 4s welcome ease-in-out forwards;
-    animation-delay: 1s;
+    animation-delay: 0s;
 }
 @keyframes welcome {
     40% {
@@ -630,20 +631,34 @@ button[type=button]:active {
         transform: translateY(10rem);
     }
 }
-
-/* #welcomeDiv.removeBlock {
-    animation: removeBlock .1s forwards;
-    animation-delay: 4.0001s;
+.welcome_mainMain {
+    animation: 1s welcomeMainMain forwards ease-in;
 }
-@keyframes removeBlock {
-    99% {
-        display: flex;
+@keyframes welcomeMainMain {
+    from {
+        height: 0%;
     }
-    100% {
-        display: none;
+    to {
+        height: 100%;
     }
-} */
+}
 
+#hideMainMainContent {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+.welcome_mainMain_content {
+    animation: fadeDownwards 1s forwards ease-in-out;
+    animation-delay: 1s;
+}
+@keyframes fadeDownwards {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Main Section */
 #mainMain {
     display: var(--mainMain-display);
     flex-direction: column;
@@ -659,20 +674,50 @@ button[type=button]:active {
     height: 0;
     width: 100%;
     overflow: hidden;
+    padding: 0 10vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     background-color: var(--mainMain-color-bg);
 }
-.welcome_mainMain {
-    animation: 1s welcomeMainMain forwards ease-in;
-}
-@keyframes welcomeMainMain {
-    from {
-        justify-content: center;
-        height: 0%;
-    }
-    to {
-        justify-content: start;
+
+    /* Note Liste */
+    #noteList {
+        display: flex;
+        flex-wrap: wrap;
+
+        width: 100%;
         height: 100%;
     }
-}
+    .noteBox {
+        flex: 30%;
+        height: 300px;
+        background-color: var(--mainMain-color-one);
+
+        border-radius: calc(var(--mainMain-edge) / 10);
+        padding: 1vw;
+    }
+
+    /* Main Main - Header */
+    #mainMain_content header {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 1vw 0;
+    }
+
+        /* Logo */
+        #logoDiv {
+            width: 10vw;
+            max-width: 200px;
+        }
+        #logoDiv > img {
+            width: 100%;
+            height: auto;
+        }
 

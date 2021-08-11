@@ -128,7 +128,12 @@ step2btn.addEventListener("click", () => {
         root.style.setProperty("--picker-color-one", "rgb(255, 236, 249)");
         root.style.setProperty("--picker-color-two", "linear-gradient(346deg, rgba(42,224,45,1) 0%, rgba(48,190,244,1) 100%)");
         root.style.setProperty("--picker-color-bg", "#ce1e58");
-    } 
+
+        //Changes Logo IMG to match the theme.
+        document.querySelector("#mainMain_content header img").src = "/assets/images/icons/pinkTree_logo_green.png";
+    } else {
+        document.querySelector("#mainMain_content header img").src = "/assets/images/icons/pinkTree_logo_pink.png";
+    }
     root.style.setProperty("--mainMain-color-one", "var(--picker-color-one)");
     root.style.setProperty("--mainMain-color-two", "var(--picker-color-two)");
     root.style.setProperty("--mainMain-color-bg", "var(--picker-color-bg)");
@@ -136,19 +141,17 @@ step2btn.addEventListener("click", () => {
     
     document.querySelector("#mainMain_welcome").classList.add("welcome");
 
-    
+    //Sets timings of animations.
     setTimeout(()=> {document.querySelector("#topX").style.display = "none";}, 900)
     setTimeout(()=> {
         document.querySelector("#welcomeDiv").style.display = "none";
     }, 6000)
     setTimeout(()=> {
         document.querySelector("#mainMain").style.justifyContent = "start";
+        document.querySelector("#hideMainMainContent").classList.add("welcome_mainMain_content")
         document.querySelector("#mainMain_content").classList.add("welcome_mainMain");
     }, 6200)
-
 })
-
-
 
 
 // Select Theme / Color Picker
@@ -202,10 +205,6 @@ pink.addEventListener("click", () => {
     step2btn.classList.add("showNextBtn");
 })
 
-
-
-
-
 // Close Container
 const
 xBtn = document.querySelector("#xBtn");
@@ -218,3 +217,37 @@ xBtn.addEventListener("click", (btn) => {
 
     contentMain.classList.add("fadeMainOut");
 })
+
+
+
+
+// Main Main
+
+function makeBoxs () {
+    for(let i = 0; i < 6; i++) {
+        let
+        box = document.createElement("section"),
+        title = document.createElement("h3"),
+        dateH4 = document.createElement("h4"),
+        date = new Date(),
+        day = date.getDate(),
+        month = date.getMonth() + 1,
+        year = date.getFullYear();
+
+        if(day.toString().length < 2) {
+            day = "0" + date.getDate();
+        }
+        if(month.toString().length < 2) {
+            month = "0" + date.getMonth();
+        }
+    
+        title.textContent = "Title";
+        dateH4.textContent = day + "/" + month + "/" + year; 
+    
+        box.classList.add("noteBox");
+    
+        box.append(title, dateH4);
+        document.querySelector("#noteList").appendChild(box);
+    }
+}
+makeBoxs();
