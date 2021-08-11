@@ -527,7 +527,7 @@ button[type=button]:active {
     border-radius: calc(var(--corners) / 10);
 
     height: 100%;
-    width: 40vw;
+    width: 20vw;
     max-width: 468px;
     padding: 3%;
 
@@ -693,7 +693,7 @@ button[type=button]:active {
 
 
         width: 100%;
-        height: 100%;
+        height: 70vh;
         overflow: auto;
     }
     /* Removes the Visual of a Scrollbar - https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp*/
@@ -721,6 +721,7 @@ button[type=button]:active {
     /* Main Main - Header */
     #mainMain_content header {
         width: 100%;
+        height: 30vh;
 
         display: flex;
         align-items: center;
