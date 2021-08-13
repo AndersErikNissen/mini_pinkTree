@@ -746,10 +746,11 @@ button[type=button]:active {
         background-color: var(--mainMain-color-one);
         color: white;
         border-radius: var(--corners);
+        padding: .5rem;
     }
     #inpTextArea {
-        padding: 1rem;
         resize: none;
+        overflow: auto;
     }
 
 
