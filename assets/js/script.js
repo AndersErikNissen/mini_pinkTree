@@ -145,12 +145,12 @@ step2btn.addEventListener("click", () => {
     setTimeout(()=> {document.querySelector("#topX").style.display = "none";}, 900)
     setTimeout(()=> {
         document.querySelector("#welcomeDiv").style.display = "none";
-    }, 6000)
+    }, 5000)
     setTimeout(()=> {
         document.querySelector("#mainMain").style.justifyContent = "start";
         document.querySelector("#hideMainMainContent").classList.add("welcome_mainMain_content")
         document.querySelector("#mainMain_content").classList.add("welcome_mainMain");
-    }, 6200)
+    }, 5010)
 })
 
 
@@ -224,7 +224,7 @@ xBtn.addEventListener("click", (btn) => {
 // Main Main
 
 function makeBoxs () {
-    for(let i = 0; i < 15; i++) {
+    for(let i = 0; i < 5; i++) {
         let
         box = document.createElement("section"),
         title = document.createElement("h3"),
@@ -253,4 +253,94 @@ function makeBoxs () {
 makeBoxs();
 
 
+// Submit 
+    const 
+    submitBtn = document.querySelector("#submit"),
 
+    inpTitle = document.querySelector("#inpTitle"),
+    intpextArea = document.querySelector("#inpTextArea");
+
+    //Create New Note Box
+        function newNoteBox() {
+            let 
+            // Values of inputs
+                tv = inpTitle.value,
+                tav = intpextArea.value,
+            // Creates Elements
+                box = document.createElement("section"),
+                title = document.createElement("h3"),
+                area = document.createElement("p"),
+            // Display None Button
+                btn = document.createElement("button"),
+                btnBox = document.createElement("section"),
+                btnDelete = document.createElement("button"),
+                btnCancel = document.createElement("button"),
+            // Date     
+                dateH4 = document.createElement("h4"),
+                date = new Date(),
+                day = date.getDate(),
+                month = date.getMonth() + 1,
+                year = date.getFullYear();
+
+                if(day.toString().length < 2) {
+                    day = "0" + date.getDate();
+                }
+                if(month.toString().length < 2) {
+                    month = "0" + date.getMonth();
+                }
+
+            // Delete Buttons details
+                btn.type = "button";
+                btn.textContent = "Delete";
+                btnBox.classList.add("deleteBox");
+                btnDelete.type = "button";
+                btnDelete.innerHTML = "<i>Delete</i>";
+                btnDelete.classList.add("deleteBtn");
+                btnCancel.type = "button";
+                btnCancel.textContent = "Cancel";
+                btnCancel.classList.add("cancelBtn");
+            
+            // The rest 
+                dateH4.textContent = day + "/" + month + "/" + year; 
+
+                title.textContent = tv;
+                area.textContent = tav;
+                box.classList.add("noteBox");
+            
+            // Append
+                btnBox.append(btnCancel, btnDelete)
+                box.append(title, dateH4, area, btn, btnBox);
+                document.querySelector("#noteList").appendChild(box);
+
+            //Delete function
+                btn.addEventListener("click", () => { 
+                    btnBox.style.display = "flex";
+                });
+                btnCancel.addEventListener("click", ()=> {
+                    btnBox.style.display = "none";
+                })
+                btnDelete.addEventListener("click", ()=> {
+                    box.remove();
+                })
+
+            //Reset Text Areas
+                inpTitle.value = "";
+                intpextArea.value = "";
+        }
+        submitBtn.addEventListener("click", newNoteBox)
+
+// Change between NoteList and NoteNew
+    const
+    noteListBtn = document.querySelector("#noteListBtn"),
+    noteNewBtn = document.querySelector("#noteNewBtn"),
+    noteList = document.querySelector("#noteList"),
+    noteNew = document.querySelector("#noteNew");
+
+    noteListBtn.addEventListener("click", ()=> {
+        noteList.style.display = "flex";
+        noteNew.style.display = "none";
+    })
+    noteNewBtn.addEventListener("click", ()=> {
+        noteNew.style.display = "flex";
+        noteList.style.display = "none";
+    })

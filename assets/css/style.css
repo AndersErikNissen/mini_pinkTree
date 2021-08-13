@@ -64,30 +64,6 @@ UCN MMDA0920*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 
-/*###########  
-    GRID  
-############*/
-.grid {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-column-desk), 1fr);
-    grid-gap: var(--grid-gap);
-}
-.grid-clmnCenter {
-    justify-content: center;
-    align-items: center;
-}
-/*##########
-    FLEX 
-###########*/
-.flex-center-XandY {
-    display: flex;
-    flex-direction: var(--flex-direction);
-    flex-wrap: var(--flex-wrap);
-    justify-content: center;
-    align-items: center;
-}
-
-
 /*##################
     MEDIA QUERIES 
 ###################*/
@@ -130,7 +106,7 @@ body {
     Fonts
 */
 h1 {
-    font-size: calc(var(--font-size-desk) * 4);
+    font-size: calc(var(--font-size-desk) * 6);
     font-weight: normal;
 }
 h2 {
@@ -142,26 +118,31 @@ p {
     margin: 1rem;
 }
 
+#mainHero {
+    position: relative;
+    display: flex;
 
-#pinkTree {
-    width: 10vw;
 }
-#arrowContainer {
+#pinkTree {
+    position: absolute;
+    z-index: 0;
+    height: 80vh;
+}
+#heroContent {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   z-index: 1;
+}
+/* #arrowContainer {
     grid-area: 2 / 1 / 3 / 2;
     height: 10vh;
     display: flex;
     justify-content: center;
-}
-#arrowUp {
-    background-color: transparent;
-    color: white;
-    border: white solid 1px;
-    height: fit-content;
-}
+} */
 #arrowUp:hover {
     color: var(--main-color);
     background-color: white;
-    border: white;
 }
 
 @keyframes move {
@@ -446,6 +427,9 @@ button[type=button]:active {
     from {opacity: 0; transform: translateY(2vh);}
     to {opacity: 1;transform: translateY(0);}
 }
+#step1_nextBtn:active, #step2_nextBtn:active {
+    transform: scale(.95);
+}
 
 #step2 {
     height: 100%;
@@ -685,6 +669,32 @@ button[type=button]:active {
 }
 
     /* Note Liste */
+    #mainMainNote_container {
+        width: 100%;
+        height: 60vh;
+    }
+
+    #noteMenu {
+        display: flex;
+
+    }
+    #noteMenu > li {
+        list-style-type: none;
+        font-size: 1.5rem;
+        margin: 0 1vw;
+        padding: 1rem;
+        border: 2px solid white;
+        border-radius: var(--corners);
+    }
+    #noteMenu > li:hover {
+        cursor: pointer;
+        background-color: white;
+        color: var(--mainMain-color-bg);
+    }
+    #noteMenu > li:active {
+        transform: scale(.95);
+    }
+
     #noteList {
         display: flex;
         /* flex-direction: column; */
@@ -693,7 +703,7 @@ button[type=button]:active {
 
 
         width: 100%;
-        height: 70vh;
+        height: 100%;
         overflow: auto;
     }
     /* Removes the Visual of a Scrollbar - https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp*/
@@ -703,25 +713,62 @@ button[type=button]:active {
     #noteList > * {
         margin: 1vw;
     }
+    /* Note New */
+    #noteNew {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .noteBox {
         flex: 45%;
-        height: 30%;
-        width: 20vw;
-
-
+        position: relative;
+        max-width: 45%;
+        
         padding: 1vw;
-
+        
         background-color: var(--mainMain-color-one);
-
+        
         border-radius: calc(var(--mainMain-edge) / 10);
         padding: 1vw;
     }
-    .noteBox:last-child {position: relative;}
+    /* NoteBox - Delete */
+    .deleteBox {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 10;
+
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: calc(var(--mainMain-edge) / 10);
+        display: none;
+        background-image: var(--mainMain-color-two);
+    }
+    .deleteBox > button[type="button"]:nth-child(2) {
+        margin: 0 1rem;
+        background-color: white;
+    }
+    .deleteBox > button[type="button"]:nth-child(2) > i {
+        font-style: normal;
+        background: var(--mainMain-color-two);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .deleteBox > button[type="button"]:nth-child(2):hover {
+        background-color: var(--mainMain-color-bg);
+        border: 2px var(--mainMain-color-bg) solid;
+    }
+    
 
     /* Main Main - Header */
     #mainMain_content header {
         width: 100%;
-        height: 30vh;
+        height: 40vh;
 
         display: flex;
         align-items: center;
@@ -740,17 +787,44 @@ button[type=button]:active {
         }
 
     /* Input */
+    label {font-size: 1.5rem;}
     #inpTextArea, #inpTitle {
         outline: none;
-        border: 1px solid white;
+        border: none;
         background-color: var(--mainMain-color-one);
         color: white;
-        border-radius: var(--corners);
         padding: .5rem;
+        border-radius: calc(var(--corners) / 20);
+        margin: 1vw 0;
+        width: 20vw;
     }
     #inpTextArea {
         resize: none;
         overflow: auto;
+        padding-right: 0;
     }
+    #inpTextArea::-webkit-scrollbar {
+        width: .7rem;
+    }
+    #inpTextArea::-webkit-scrollbar-thumb {
+        background-image: var(--mainMain-color-two);
+        border-radius: 1rem;
+    }
+
+    #submit {
+        background-image: var(--mainMain-color-two);
+        border: none;
+    }
+    #submit > i {font-style: normal;}
+    #submit:hover > i {
+        background: var(--mainMain-color-two);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    #submit:hover {
+        background-image: none;
+        background-color: white;
+    }
+
 
 

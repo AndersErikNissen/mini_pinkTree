@@ -14,20 +14,19 @@
 <body>
     <section id="mainHero">
         <object id="pinkTree" data="/assets/images/icons/pink_tree3.svg" type="image/svg+xml"></object>
-        <h1>WELCOME TO PINKTREE</h1>
-        <!-- <p> Here you will be able to make list a of all the things you want to do!</p> -->
+        
+        <section id="heroContent">
 
-        <section style="display: flex;flex-direction: column;">
+            <h1>WELCOME TO PINKTREE</h1>
 
-            <label for="title">Title</label>
-            <input type="text" name="title" id="inpTitle">
-            
-            <label for="textArea">Text Area</label>
-            <textarea name="textArea" id="inpTextArea" cols="60" rows="5"></textarea>
+            <button id="arrowUp" type="button">
+                BEGIN
+            </button>
 
-            <button type="button">SUBMIT</button>
 
         </section>
+
+
     </section>
 
     <section id="mainContent_container" data-style="light">
@@ -210,11 +209,31 @@
                                 <img src="/assets/images/icons/pinkTree_logo_green.png" alt="Image of Pinktree's Logo">
                             </div>
                             <h2>PINKTREE Notebook</h2>
+
+                            <ul id="noteMenu">
+                                <li id="noteListBtn">List of Notes</li>
+                                <li id="noteNewBtn">Create New Note</li>
+                            </ul>
                         </header>
     
-                        
-                        <section id="noteList">
+                        <section id="mainMainNote_container">
+
+                            <section id="noteList">
+        
+                            </section>
     
+                            <section id="noteNew">
+    
+                                    <label for="title">Title</label>
+                                    <input type="text" name="title" id="inpTitle">
+                                    
+                                    <label for="textArea">Text Area</label>
+                                    <textarea name="textArea" id="inpTextArea" cols="60" rows="5"></textarea>
+                        
+                                    <button type="button" id="submit"><i>SUBMIT</i></button>
+    
+                            </section>
+
                         </section>
 
                     </section>
@@ -226,15 +245,6 @@
         </section>
 
     </section>
-    
-    <section id="arrowContainer">
-        <button id="arrowUp" type="button">
-            GET STARTED
-        </button>
-    </section>
-
-
-
 
     <!-- <section id="inputArea"> 
         <fieldset>
